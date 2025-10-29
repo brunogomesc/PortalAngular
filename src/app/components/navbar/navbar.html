@@ -1,0 +1,41 @@
+<header class="navbar" role="banner">
+  <div class="nav-container">
+    <a class="brand" routerLink="/">
+      <span class="logo" aria-hidden="true"></span>
+      Portal Angular
+    </a>
+
+    <nav role="navigation" aria-label="Menu principal">
+      <button
+        class="hamburger"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="main-nav"
+        title="Abrir menu"
+      >
+        ☰
+      </button>
+
+      <ul class="nav-links" [class.show]="menuOpen" id="main-nav">
+        <li><a routerLink="/recursos" routerLinkActive="active" (click)="closeMenu()">Recursos</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Produtos ▾</a>
+          <div class="dropdown-menu" role="menu" aria-label="submenu">
+            <a routerLink="/produtos/a" (click)="closeMenu()" role="menuitem">Produto A</a>
+            <a routerLink="/produtos/b" (click)="closeMenu()" role="menuitem">Produto B</a>
+            <a routerLink="/produtos/c" (click)="closeMenu()" role="menuitem">Produto C</a>
+          </div>
+        </li>
+
+        <li><a routerLink="/precos" routerLinkActive="active" (click)="closeMenu()">Preços</a></li>
+        <li><a routerLink="/contato" routerLinkActive="active" (click)="closeMenu()">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions" role="region" aria-label="Ações do usuário">
+      <button class="btn" routerLink="/login">Entrar</button>
+      <button class="btn primary" routerLink="/cadastro">Cadastre-se</button>
+    </div>
+  </div>
+</header>
